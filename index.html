@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>אורי דניאלי — סיפורים על אבא</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;600;700;800&family=Assistant:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FBFAF7; --surface:#FFFFFF; --line:#E8E5DD;
+    --ink:#143843; --ink-2:#3C575F; --muted:#74807F;
+    --sea:#1A7E92; --sea-deep:#0F5A68; --tint:#E8F2F2; --tint-2:#F1F7F5;
+    --maxw:1080px; --read:64ch;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Assistant",system-ui,sans-serif;font-size:18.5px;line-height:1.72;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px;}
+  h1,h2,h3,h4{font-family:"Rubik",sans-serif;}
+
+  /* ---------- navbar ---------- */
+  .nav{position:sticky;top:0;z-index:50;background:rgba(251,250,247,.94);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+  .nav .wrap{display:flex;align-items:center;gap:14px;height:62px;}
+  .brand{font-family:"Rubik";font-weight:700;font-size:1.12rem;color:var(--ink);
+    text-decoration:none;letter-spacing:-.01em;white-space:nowrap;flex-shrink:0;}
+  .brand span{color:var(--sea);}
+  .navlinks{display:flex;gap:4px;overflow-x:auto;flex:1;scrollbar-width:none;}
+  .navlinks::-webkit-scrollbar{display:none;}
+  .navlink{font-family:"Rubik";font-weight:600;font-size:.92rem;color:var(--ink-2);
+    text-decoration:none;padding:7px 12px;border-radius:999px;white-space:nowrap;transition:all .14s ease;}
+  .navlink:hover{color:var(--sea-deep);background:var(--tint-2);}
+  .navlink.active{color:var(--sea-deep);background:var(--tint);}
+  .topbtn{font-family:"Rubik";font-weight:600;font-size:.9rem;background:var(--sea);color:#fff;
+    text-decoration:none;padding:8px 15px;border-radius:999px;white-space:nowrap;flex-shrink:0;transition:background .15s ease;}
+  .topbtn:hover{background:var(--sea-deep);}
+
+  /* ---------- hero ---------- */
+  .hero{background:linear-gradient(180deg,var(--tint) 0%, var(--bg) 100%);padding:54px 0 42px;}
+  .hero .wrap{text-align:center;}
+  .eyebrow{font-size:.76rem;font-weight:700;letter-spacing:.34em;color:var(--sea);text-indent:.34em;margin-bottom:12px;}
+  .hero h1{font-weight:800;font-size:clamp(2.8rem,8vw,4.8rem);line-height:1;margin:0;color:var(--ink);letter-spacing:-.02em;}
+  .portrait{margin:34px auto 0;max-width:720px;border-radius:20px;overflow:hidden;
+    box-shadow:0 24px 60px -30px rgba(15,90,104,.55);border:7px solid #fff;}
+  .portrait img{display:block;width:100%;height:auto;}
+
+  .lead{max-width:var(--read);margin:32px auto 0;}
+  .lead p{margin:0 0 1em;color:var(--ink-2);}
+  .lead p.first{font-size:1.22rem;color:var(--ink);font-weight:500;line-height:1.55;}
+
+  /* ---------- submit ---------- */
+  .submit{margin:30px auto 0;max-width:var(--read);}
+  .submit-card{background:var(--sea);color:#fff;border-radius:20px;padding:30px;text-align:center;}
+  .submit-card h3{font-weight:700;font-size:1.45rem;margin:0 0 8px;}
+  .submit-card p{margin:0 auto 18px;max-width:48ch;color:#e3f0ef;}
+  .submit-card .tall{display:block;margin-top:6px;font-weight:700;color:#fff;}
+  .cta{display:inline-block;background:#fff;color:var(--sea-deep);font-family:"Rubik";font-weight:700;
+    text-decoration:none;border-radius:999px;padding:12px 28px;transition:transform .12s ease;}
+  .cta:hover{transform:translateY(-2px);}
+  .cta-note{margin:12px 0 0;font-size:.8rem;color:#bfe0dd;}
+
+  /* ---------- traits grid ---------- */
+  .traits{padding:48px 0 20px;}
+  .closing{padding:40px 0 6px;}
+  .sec-title{text-align:center;margin:0 0 6px;font-weight:800;font-size:clamp(1.6rem,4vw,2.1rem);color:var(--ink);}
+  .sec-sub{text-align:center;color:var(--muted);margin:0 0 30px;}
+  .grid{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;}
+  .tcard{flex:1 1 248px;max-width:320px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;background:var(--surface);border:1px solid var(--line);
+    border-radius:18px;padding:24px 24px 20px;text-decoration:none;color:inherit;
+    transition:transform .14s ease, box-shadow .14s ease, border-color .14s ease;}
+  .tcard:hover{transform:translateY(-3px);box-shadow:0 16px 34px -24px rgba(15,90,104,.5);border-color:#cfe2e1;}
+  .tbadge{height:76px;display:flex;align-items:center;justify-content:center;}
+  .ico-img{height:62px;width:auto;max-width:180px;object-fit:contain;display:block;}
+  .tcard h3{margin:0;font-weight:700;font-size:1.22rem;color:var(--ink);line-height:1.25;}
+  .tcard .blurb{color:var(--ink-2);font-size:.98rem;flex:1;}
+  .tcard .go{display:flex;align-items:center;justify-content:space-between;margin-top:4px;
+    color:var(--sea);font-family:"Rubik";font-weight:600;font-size:.92rem;}
+  .tcard .cnt{color:var(--muted);font-size:.9rem;font-family:"Rubik";font-weight:500;}
+  .ico{width:64px;height:64px;display:block;}
+  .ico.wide{width:94px;height:66px;}
+
+  /* ---------- trait / author page ---------- */
+  .page{padding:38px 0 10px;}
+  .back{display:inline-block;font-family:"Rubik";font-weight:600;font-size:.92rem;color:var(--sea);text-decoration:none;margin-bottom:16px;}
+  .back:hover{color:var(--sea-deep);}
+  .page-head{max-width:var(--read);margin:0 auto 8px;}
+  .page-head .title-row{display:flex;align-items:center;gap:14px;}
+  .page-head.centered{text-align:center;}
+  .page-head.centered .tbadge{height:96px;}
+  .page-head.centered .ico{width:80px;height:80px;}
+  .page-head.centered .ico.wide{width:120px;height:84px;}
+  .page-head.centered .ico-img{height:78px;max-width:230px;}
+  .page-head h2{font-weight:800;font-size:clamp(1.7rem,5vw,2.4rem);margin:0;color:var(--ink);letter-spacing:-.02em;}
+  .page-head .blurb{color:var(--ink-2);margin:10px 0 0;font-size:1.08rem;}
+  .page-head .cnt{color:var(--muted);font-size:.92rem;margin:4px 0 0;}
+  .grouplabel{max-width:var(--read);margin:32px auto 0;font-family:"Rubik";font-weight:600;font-size:.82rem;letter-spacing:.12em;color:var(--sea);}
+
+  /* ---------- story ---------- */
+  .story{max-width:var(--read);margin:20px auto;background:var(--surface);border:1px solid var(--line);
+    border-radius:16px;padding:26px 28px 16px;}
+  .story h4{font-weight:700;font-size:1.3rem;margin:0 0 4px;color:var(--sea-deep);}
+  .story .byline{margin:0 0 16px;}
+  .story p{margin:0 0 .9em;color:var(--ink-2);}
+  .story p:last-of-type{margin-bottom:0;}
+  .story-fig{margin:0 0 16px;}
+  .story-fig img{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--line);}
+  .story-fig.logo{text-align:center;}
+  .story-fig.logo img{display:inline-block;width:auto;max-width:min(280px,100%);border:none;}
+  .story-fig figcaption{margin-top:8px;font-size:.85rem;color:var(--muted);text-align:center;}
+  .story-foot{display:flex;align-items:center;justify-content:flex-start;gap:14px;flex-wrap:wrap;
+    margin-top:16px;padding-top:14px;border-top:1px solid var(--line);}
+  .byline{font-size:.95rem;color:var(--muted);}
+  .author-btn{background:none;border:0;padding:0;font:inherit;font-weight:700;color:var(--sea);cursor:pointer;text-decoration:none;}
+  .author-btn:hover{color:var(--sea-deep);text-decoration:underline;text-underline-offset:3px;}
+  .like{display:inline-flex;align-items:center;gap:7px;cursor:pointer;background:var(--bg);border:1px solid var(--line);
+    border-radius:999px;padding:5px 13px;font:inherit;font-size:.9rem;font-weight:600;color:var(--muted);transition:all .15s ease;}
+  .like:hover{border-color:var(--sea);}
+  .like.on{background:#FCE9E4;border-color:#E8B4A6;color:#B4513A;}
+  .like .heart{font-size:1.05rem;line-height:1;}
+
+  /* ---------- bottom trait nav ---------- */
+  .more{max-width:var(--read);margin:40px auto 0;padding-top:24px;border-top:1px solid var(--line);}
+  .more .t{font-family:"Rubik";font-weight:600;font-size:.85rem;color:var(--muted);margin:0 0 12px;}
+  .chips{display:flex;flex-wrap:wrap;gap:9px;}
+  .chip{font-family:"Rubik";font-size:.9rem;font-weight:600;text-decoration:none;background:var(--surface);
+    color:var(--sea-deep);border:1px solid var(--line);border-radius:999px;padding:7px 15px;transition:all .14s ease;}
+  .chip:hover{border-color:var(--sea);background:#fff;}
+
+  footer{padding:46px 0 56px;text-align:center;color:var(--muted);font-size:.9rem;margin-top:30px;border-top:1px solid var(--line);}
+  footer .name{font-family:"Rubik";color:var(--ink);font-size:1.1rem;font-weight:700;}
+
+  @media (max-width:560px){body{font-size:17.5px;}.story{padding:22px 20px 14px;}.submit-card{padding:26px 22px;}}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition:none!important;}}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--sea);outline-offset:2px;border-radius:8px;}
+</style>
+</head>
+<body>
+
+  <header class="nav">
+    <div class="wrap">
+      <a class="brand" href="#/">אורי דניאלי<span> ·</span> סיפורים</a>
+      <nav class="navlinks" id="navlinks"></nav>
+      <a class="topbtn" id="topSubmit" href="#" target="_blank" rel="noopener">שליחת סיפור</a>
+    </div>
+  </header>
+
+  <main id="app"></main>
+
+  <footer>
+    <div class="wrap">
+      <div class="name">אורי דניאלי</div>
+      <p>נאסף באהבה על ידי המשפחה והחברים · לקראת מאי 2027</p>
+    </div>
+  </footer>
+
+<script>
+/* =================================================================
+   הוספת סיפור: אובייקט במערך stories עם cat / title / author / body.
+   להוספת תמונה לסיפור: img (קישור או base64), imgAlt, imgKind ("photo"/"logo").
+   קישור טופס השליחה: שנו את SUBMIT_URL.
+   ================================================================= */
+const SUBMIT_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeHhXSxZXGO-9Q-5rfEDLuQRzNcD0TlVA8ErOdk4kHDVJxOiQ/viewform";
+
+const categories = [
+  { id:"savlanut",     short:"סבלנות",    name:"סבלנות",                             blurb:"טיפה אחרי טיפה, בלי לאבד את הקצב." },
+  { id:"nehishut",     short:"נחישות",    name:"נחישות, התמדה ומשמעת עצמית",         blurb:"כשהחליט על משהו — זהו, אין חזרה." },
+  { id:"sakranut",     short:"סקרנות",    name:"סקרנות",                             blurb:"רצה להבין הכול, מבפנים." },
+  { id:"yetsiratiyut", short:"יצירתיות",  name:"יצירתיות",                           blurb:"פתרונות שאף אחד אחר לא היה חושב עליהם." },
+  { id:"tsniut",       short:"צניעות",    name:"צניעות",                             blurb:"המותג שלו היה שאין לו מותג." },
+  { id:"hemla",        short:"חמלה",      name:"חמלה ונכונות לעזור",                 blurb:"מאה אחוז נתינה." },
+  { id:"aher",         short:"אחר",       name:"אחר",                                blurb:"סיפורים שלא נכנסים לשום מגירה." },
+];
+
+const icons = {
+  savlanut:`<svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><rect x="14" y="8" width="36" height="6" rx="2" fill="#8B5E3C"/><rect x="14" y="50" width="36" height="6" rx="2" fill="#8B5E3C"/><path d="M18 14C18 26 28 28 30 32 28 36 18 38 18 50H46C46 38 36 36 34 32 36 28 46 26 46 14Z" fill="#EAF3F5" stroke="#9BB7BC" stroke-width="2"/><path d="M22 16H42C42 24 34 27 32 29 30 27 22 24 22 16Z" fill="#E2B04A"/><path d="M25 48H39C39 43 34 41 32 38 30 41 25 43 25 48Z" fill="#E2B04A"/><path d="M32 30V38" stroke="#E2B04A" stroke-width="2.2" stroke-linecap="round"/></svg>`,
+  nehishut:`<img class="ico-img" src="images/shayetet13.png" alt="סמל שייטת 13">`,
+  sakranut:`<svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><path d="M8 16C16 12 24 13 32 18V52C24 47 16 46 8 50Z" fill="#2E7C9E"/><path d="M56 16C48 12 40 13 32 18V52C40 47 48 46 56 50Z" fill="#3A93B5"/><path d="M12 20C18 17 24 18 30 22V48C24 44 18 43 12 46Z" fill="#FFF8E7"/><path d="M52 20C46 17 40 18 34 22V48C40 44 46 43 52 46Z" fill="#FFF8E7"/><g stroke="#B9C7C9" stroke-width="1.6" stroke-linecap="round"><path d="M15 25H27M15 30H27M15 35H26M15 40H25M37 25H49M37 30H49M37 35H48M37 40H47"/></g><path d="M32 18V52" stroke="#1F5A6E" stroke-width="2.4"/></svg>`,
+  yetsiratiyut:`<svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><g stroke="#F2B233" stroke-width="2.6" stroke-linecap="round"><path d="M32 5V10M14 12l3.5 3.5M50 12l-3.5 3.5M7 30h5M52 30h5"/></g><path d="M32 14C22 14 16 21 16 29c0 6 4 9 6 13 1 2 1 4 1 6h18c0-2 0-4 1-6 2-4 6-7 6-13 0-8-6-15-16-15z" fill="#FFD84D" stroke="#E0A800" stroke-width="2"/><rect x="24" y="48" width="16" height="5" rx="1.5" fill="#8C8C8C"/><rect x="26" y="53" width="12" height="4" rx="1.5" fill="#6E6E6E"/><path d="M28 30l4 8 4-8" stroke="#E0A800" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  tsniut:`<svg class="ico wide" viewBox="0 0 80 56" aria-hidden="true"><defs><clipPath id="kpclip"><path d="M70 42V16c0-3-2.5-4.5-5-3.5-4.5 1.6-6.5 5-7.5 9.5-8-1-16 2.5-25 8.5C24 35 8 40 6 43c-.5 1.5 1.5 2 4 2h60z"/></clipPath></defs><path d="M70 42V16c0-3-2.5-4.5-5-3.5-4.5 1.6-6.5 5-7.5 9.5-8-1-16 2.5-25 8.5C24 35 8 40 6 43c-.5 1.5 1.5 2 4 2h60z" fill="#D9A66B"/><g clip-path="url(#kpclip)"><g fill="#A0672E" opacity=".85"><rect x="0" y="19" width="80" height="4"/><rect x="0" y="29" width="80" height="4"/><rect x="0" y="39" width="80" height="4"/></g><g fill="#2B2B2B" opacity=".8"><rect x="14" y="4" width="4" height="50"/><rect x="28" y="4" width="4" height="50"/><rect x="42" y="4" width="4" height="50"/><rect x="56" y="4" width="4" height="50"/></g></g><path d="M70 42V16c0-3-2.5-4.5-5-3.5-4.5 1.6-6.5 5-7.5 9.5-8-1-16 2.5-25 8.5C24 35 8 40 6 43c-.5 1.5 1.5 2 4 2h60z" fill="none" stroke="#6E4520" stroke-width="2"/><path d="M9 45h61c1.7 0 3 1.1 3 2.5S71.7 50 70 50H9c-1.7 0-3-1.1-3-2.5S7.3 45 9 45z" fill="#2B2B2B"/><path d="M57.5 22l-5 8-4 8" stroke="#3D3D3D" stroke-width="2.6" stroke-linecap="round" fill="none"/><g stroke="#9A9A9A" stroke-width="1.5" stroke-linecap="round"><path d="M56 25h2.2M54.2 28.5h2.2M52.4 32h2.2M50.6 35.5h2.2"/></g></svg>`,
+  hemla:`<svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 56C18 45 8 37 8 24a11 11 0 0 1 24-7 11 11 0 0 1 24 7c0 13-10 21-24 32z" fill="#E4573D" stroke="#C4402A" stroke-width="2"/><path d="M18 24c0-4 3-7 7-7" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".7" fill="none"/></svg>`,
+  aher:`<svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><path d="M28 6c0 14 4 18 18 18-14 0-18 4-18 18 0-14-4-18-18-18 14 0 18-4 18-18z" fill="#F2B233" stroke="#D99A1A" stroke-width="1.5" stroke-linejoin="round"/><path d="M46 34c0 7 2 9 9 9-7 0-9 2-9 9 0-7-2-9-9-9 7 0 9-2 9-9z" fill="#FFD84D" stroke="#D99A1A" stroke-width="1.5" stroke-linejoin="round"/></svg>`,
+};
+
+const stories = [
+  { cat:"savlanut", title:"אדם והתרופה", author:"אורן דניאלי",
+    img:"images/adam.jpg", imgKind:"photo", imgAlt:"אורי ואדם",
+    body:[
+    `כשאדם היה בערך בן שנתיים הוא היה חולה הרבה בדלקות גרון. הוא היה צריך לקבל מנה ראשונה של אנטיביוטיקה כדי להתחיל להרגיש יותר טוב, אבל לפני זה היה בתפקוד נמוך מאוד. באחת הפעמים, אדם סירב בכל תוקף לבלוע אנטיביוטיקה. ניסינו, ואני לא מגזים, שעות. הפעלנו שיטות שנוגדות את אמנת ז׳נבה. התקשרנו למרפאה, שהיו על סף לדווח עלינו לרווחה, ובסוף אמרו — תראו, אתם יכולים להביא אותו לבית חולים, אבל זה לא יהיה נעים.`,
+    `למזלנו, אורי היה אצלנו בביקור. הוא שפך את ה־6 cc אנטיביוטיקה לתוך כוס תרופה קטנה, טבל את האצבע, וביקש מאדם שיכניס לפה. אדם הסכים. ככה פעם, פעמיים, שלוש. ראינו שזה עובד אבל הקצב היה כל כך איטי. המפלס של הכוס לא ירד והשעה היתה כבר מאוחרת. אורי אמר — "תנו לי". ואני חשבתי שזה בחיים לא יעבוד, אבל הייתי כל כך עייף שנתתי.`,
+    `אחרי בערך שעתיים התעוררתי והלכתי לבדוק מה קורה. תפסתי את אורי ואדם בסלון, והמפלס של הכוס כבר מתקרב לסוף. ראיתי שהאנטיביוטיקה מתחילה אפילו להשפיע, כי אדם התחיל כבר לחייך (ולחפור). אורי הקשיב והמשיך לטבול את האצבע ולתת לו עוד טיפה ועוד טיפה עד שהכוס הסתיימה. למחרת בבוקר אדם כבר הרגיש יותר טוב והסכים לקחת את שאר המנות של התרופה ממזרק.` ] },
+
+  { cat:"savlanut", title:"דיבל", author:"גלי ארנון", body:[
+    `מי שרוצה להכיר את אורי צריך לראות אותו שם דיבל בקיר. קודם כל, הוא בא למדוד. אני שואל אותו: אורי, זה דיבל אחד, מה יש למדוד? הוא ענה לי: כמה אתה רוצה אותו מהרצפה? אז המצאתי לו מספרים: 182. הוא היה מודד 182.`,
+    `הוא היה בא עם ארגז הכלים של סבא רן. היה מסמן עם עיפרון. אחר כך עם עט. ואז מתחיל לקדוח — קודם עם מקדח 3 מ״מ, אחר כך 5 מ״מ. הוא הפך התקנת דיבל לאומנות.` ] },
+
+  { cat:"nehishut", title:"דיאטה", author:"אורן דניאלי", body:[
+    `בערך בגיל 40–45 אורי החליט שהוא צריך להוריד במשקל. הוא נרשם לתוכנית דיאטה ששולחת לך ארוחות מוכנות הביתה בהקצבה קלורית כמו בתקופות חשוכות בהיסטוריה. האוכל הזה היה נראה דוחה יותר ממנות קרב. אבל אורי חשב שזה קל מדי. לכן, כשנרשם לתוכנית, הוא רשם את עצמו בתור אישה, כדי לקבל כמויות אפילו קטנות יותר. גם את הקינוח שהיה שם הוא לא אכל. נדמה לי שהוא הוריד ככה איזה עשרה קילוגרמים.` ] },
+
+  { cat:"nehishut", title:"מזרון רצפה", author:"אורן דניאלי", body:[
+    `אביב נולד כשאדם עוד לא היה בן שנה וחצי, וככה אנחנו, שני דוקטורנטים עמוסים, היינו במצב שנקרא בשפה המקצועית two under two. בעוד שאדם היה ישן מעולה מגיל צעיר, אביב הבין שתשומת הלב של ההורים יחסית פנויה בלילה, ולכן בחר לא לישון אף פעם. הוא היה דופק בקבוקי חלב בלילה בקצב, והכיור שלנו היה מלא בבקבוקים ריקים כמו איזו מחזורית.`,
+    `מדי פעם, ולא מעט, אורי היה בא לעזור. הוא קנה לעצמו מזרון רצפה זול באיקאה ופרס אותו בין המיטות של הילדים. הוא הביא את כל המנטליות של השייטת לסבאות. בערך בשמונה בערב היה פוקד עלינו ללכת לישון, ושהוא ייקח את זה מכאן. אנחנו היינו משלימים שעות שינה של חודשים, והוא היה עושה לילות לבנים. ובסוף הביקור הוא עוד התבאס לעזוב.` ] },
+
+  { cat:"nehishut", title:"משקולות", author:"שאול פרי", body:[
+    `כשהיינו בשייטת היה תרגיל ציפה עם משקולות. היית צריך לבחור משקל שאיתו אתה מרגיש שאתה יכול לצוף. אורי הגיע, ובלי לחשוב פעמיים בחר את החגורה עם ה־16 משקולות — המשקל הכי כבד. אני בכל ההיסטוריה שלי ראיתי שני אנשים שהצליחו לשרוד איתם מעל המים, שניהם שחקני כדורמים בנבחרת ישראל, עם עבודת רגליים מעולה.`,
+    `המדריך שואל אותו — תגיד, אתה הבנת את התרגיל? אורי עונה שבוודאי. המדריך מקשה ושואל — אתה בטוח שאתה רוצה לקחת 16 משקולות? אורי עונה — תקשיב, זה לא משנה עם כמה משקולות אני קופץ, כי אני גם ככה לא יודע לשחות, אז אתה תקפוץ אחריי ותציל אותי. לפחות שיהיה רשום שירדתי עם 16 משקולות.` ] },
+
+  { cat:"nehishut", title:"חגורת הצלה", author:"חברים מהשייטת", body:[
+    `אורי היה ביחידת צלילה פר אקסלנס. המסלולים שלה קשים לכל אחד. אבל אורי התחיל אותה בתנאים קשים במיוחד — הוא לא ידע בכלל לשחות. בהתחלת המסלול היה עושה שחייה עם חגורת הצלה. רק חצי וחזור.` ] },
+
+  { cat:"sakranut", title:"שומע חופשי", author:"אורן דניאלי", body:[
+    `כשאני ושיר היינו סטודנטים, אבא היה כבר עמוק בפנסיה. הוא החליט שהוא מצטרף אלינו. היה עובר לנו על המערכת ומחליט לאילו שיעורים הוא מצטרף, ועשה איתי בערך קורס–שניים בסמסטר. וכשאני אומר עושה — אני מתכוון עד הסוף. הוא הגיע לכל השיעורים, מעולם לא איחר. בהתחלה קצת התבייש והיה תופס לנו מקום מאחורה. אבל מרוב סקרנות, תמיד היה צריך לשאול דברים את המרצה, ותוך שבועיים–שלושה כבר היה התלמיד הפעיל ביותר בכיתה.` ] },
+
+  { cat:"sakranut", title:"ספר", author:"אורן דניאלי", body:[
+    `אבא היה לוקח לכל מקום ספר. כשהיינו מגיעים לתפוס מקום במשחקי כדורגל, הוא היה שולף אותו. כשהיה מחכה לאסוף אותי מאיפשהו, הייתי רואה אותו עם ספר גם כן. כמו שאנשים היום שולפים טלפון, הוא היה שולף ספר. כשעבד, אלה היו ספרי ניהול. היו גם הרבה מגזינים. בהמשך אלה היו ספרים בערבית שלמד.`,
+    `כשהייתי מבוגר מספיק לקרוא ספרים שמעניינים אותו, יכולנו להמליץ אחד לשני. היו לו המלצות טובות — למרות שקרה פעם שהוא שלח אותי לאבט״ש עם ספר נוראי שלא הבנתי למה המליץ עליו, ובסוף הסתבר שהוא התבלבל והתכוון להמליץ על משהו אחר. פעם המלצתי לו על ספר שהוא כל כך אהב (נדמה לי שזה היה "האבולוציה של האהבה") שהוא קנה 10 עותקים והתחיל לחלק לאנשים כמו חב״דניק.` ] },
+
+  { cat:"sakranut", title:"לימודים מעל הכל", author:"אורן דניאלי", body:[
+    `כשאבא היה סטודנט, הוא גר אצל סבא וסבתא שלו, אסתה ודנייק, בגבעתיים. הוא סיפר לי שסבתא אסתה היתה מכניסה לו מדי פעם אוכל לחדר, כדי שיוכל להמשיך ללמוד, ואומרת משהו ביידיש (נדמה לי — תלמיד חכם).`,
+    `כשאני הייתי סטודנט, הוא ניסה להעביר את זה הלאה. כל פעם שהייתי צריך עזרה במשהו, הוא היה בא לתקן, כדי שאוכל להמשיך ללמוד. אוכל הוא לא ידע להכין, אבל הוא בנה לי שולחן, התקין מאוורר, החליף מקלחון, ועוד ועוד ועוד.` ] },
+
+  { cat:"sakranut", title:"איתמר בן אב״י", author:"בר שהם", body:[
+    `כשהייתי בצבא שירתי בדובר צה"ל. הבניין היה ברחוב איתמר בן אב"י בתל אביב. בנובמבר 2012, מבצע עמוד ענן, עשיתי משמרות צפופות ולא היה לי זמן לחזור לחיפה, אז אורי הציע לי לישון אצלם בהרצליה. הוא כמובן גם הציע לבוא לקחת אותי מהבסיס. סיכמנו על שעה, אבל בצה"ל כמו בצה"ל — דברים מתעכבים.`,
+    `אורי כנראה הקדים קצת, נכנס לבניין ושאל אם אפשר להיכנס. הוא גם שאל את הש"ג אם הוא יודע מה ראשי התיבות של "אב"י" בשם הרחוב, איתמר בן אב"י. די מהר הגיעה אליי הקצינה התורנית ואמרה שיש בש"ג איזה תמהוני שטוען שהוא דוד שלי. הלכתי לחלץ אותו משם לפני שקראו לאבטחה.`,
+    `כשיצאנו הוא התעכב שוב על השלט של הרחוב. הוא לא ניסה לבחון את הש"ג — הוא באמת לא ידע מה ראשי התיבות, וזה מאוד הטריד אותו. בזכותו היום אני יודעת שאיתמר הוא הבן של אליעזר בן יהודה.` ] },
+
+  { cat:"sakranut", title:"קלצ׳ניקוב", author:"ירון בנאי", body:[
+    `אביב 1974, אנחנו בקורס מכ"ים, ובכל מחלקה יש חניך אחד עם קלצ'ניקוב כדי שנכיר אותו לפני בואנו לשייטת. באחד מסופי השבוע שנשארנו בבסיס פנה אליי אורי וביקש את הנשק לסוף השבוע. כששאלתי אותו בשביל מה, ענה לי כך: אני צריך להכיר איך הוא עובד, ולשם כך אני רוצה לעשות פירוק משני לנוקר.`,
+    `מעולם, לא לפני ולא אחרי, לא שמעתי על מישהו שעשה — ויודע לפרק — נוקר, כדי להבין איך זה עובד. ביום ראשון החזיר לי את הנשק עם חיוך ואמר: לקח לי כמה שעות, אבל הצלחתי.` ] },
+
+  { cat:"sakranut", title:"תחקיר", author:"ירון בנאי",
+    img:"images/uganda.jpg", imgKind:"photo", imgAlt:"אורי יושב על הקרקע ומשחק עם ילדים · אוגנדה, 2012",
+    body:[
+    `סתיו 2012. אורי ואני נוסעים באוגנדה באזורים שכוחי אל, ומגיעים לבית ספר בכפר. בזמן שכל הזאטוטים מצטופפים סביבנו בהתלהבות, מחפש אורי את מנהל בית הספר ומבקש ממנו להיכנס לשיעור חשבון — לראות מה ואיך הילדים באפריקה לומדים. המנהל, שראה בדמיונו איך משיגים תרומה שמנה לבית הספר, הכניס את אורי לשיעור שנמשך כחצי שעה כדי שיחווה איך לומדים חשבון באוגנדה. תרומה למנהל לא יצאה, אבל סוכריות מתוקות שאורי קנה בעוד מועד והיו אצלו בשפע חולקו בשמחה לילדים שהתגודדו סביבנו.`,
+    `באותו טיול, ברואנדה, ראה אורי מחלון הרכב ילדים יושבים על הכביש ומשחקים סוג של דמקה. מיד נעצר הרכב, אורי ירד וישב על הכביש עם הילדים כדי להבין את חוקי המשחק. לאחר כמה דקות ביקש להצטרף, וישב ושיחק נגד שאר הילדים.`,
+    `יפן 2014. אנחנו בקיוטו, ואורי רואה חבורת תלמידות בגילאי 13–14 עומדות בצד. מבלי להתבלבל הוא ניגש אליהן ופותח שיחה ארוכה באנגלית שבורה — על מה הן רוצות לעשות בחיים כשיהיו גדולות, ואילו חלומות הן רוצות להגשים. והכל כדי להבין טוב יותר את המקום והתרבות של האנשים שפגשנו בטיולינו הרבים בעולם.` ] },
+
+  { cat:"yetsiratiyut", title:"ברז", author:"אורן דניאלי", body:[
+    `אורי אהב לתקן תקלות בבית. הוא היה מתייחס לתקלות כמו סוגיה מדעית — חוקר אותן, מתעד, מעלה השערות, בודק, מפריך וכו'. פעם אחת ראה בשעון המים שיש נזילה. השעון מתקדם, אפילו שהכל אמור להיות סגור. הוא עבר על הדברים הרגילים: חיפש טפטופים, בדק את הצינורות בגינה, חיפש רטיבות. לא מצא כלום. לא מצא שום דבר.`,
+    `בשלב מסוים החליט לנסות להבין מה היקף הנזילה. הוא בדק באיזה קצב שעון המים מתקדם — כתב את המספר על השעון, חיכה דקה, כתב את המספר החדש וחישב את ההפרש. המספר שיצא לו נראה גבוה מדי. הוא פתח את הברז בשירותים ומדד שוב, וראה שהקצב של הזרימה בדיוק הוכפל. כלומר הנזילה הוציאה מים בכמות של ברז. בקצב הזה יהיה נזק רציני אם לא יפתור את זה בקרוב. איך יכול להיות שהוא לא מוצא נזילה כל כך רצינית?`,
+    `הוא סגר את הברז ומדד שוב. ואז שם לב למשהו חשוד: הקצב של הנזילה לא היה בערך בקצב של ברז — הוא היה בדיוק, אחד לאחד, בקצב של ברז. הוא הלך לשירותים של עידו, וראה שהוא השאיר את הברז פתוח בבוקר.` ] },
+
+  { cat:"yetsiratiyut", title:"הטיסה ממגידו", author:"אורן דניאלי", body:[
+    `כשהייתי חייל, רציתי שנעשה סדר פסח עם ההגדה הקיבוצית, לכבד את המסורת. הבעיה היא שחשבתי על הרעיון הזה בבוקר של לפני ליל הסדר. איך משיגים הגדות קיבוציות בהתראה כל כך קצרה?`,
+    `חיפוש באינטרנט העלה שיש בית דפוס בבית השיטה שמוכר הגדות קיבוציות. אבל כבר היה צהריים. לנסוע עכשיו מהרצליה לבית השיטה וחזרה היה בלתי אפשרי.`,
+    `לאורי היה רעיון. הוא התקשר לשדה התעופה במגידו ושאל אם במקרה יש איזה טייס שטס ממגידו להרצליה. אמרו לו שכן — וזה אפילו היה מישהו שהוא הכיר. הוא התקשר אליו, ביקש מגלי לקנות הגדות ולמסור לו אותן, וההגדות נחתו בשדה התעופה בהרצליה בדיוק בזמן. משלוח שאמזון יכולים רק לחלום עליו.` ] },
+
+  { cat:"yetsiratiyut", title:"מבדקי טייס", author:"אורן דניאלי", body:[
+    `במבדקי טייס בודקים אם אתה מצליח להרכיב איזו מכונה. נותנים לך אותה להסתכל עליה כדי שתבין מה זה אמור להיות, ואז מבקשים ממך לפרק ולהרכיב מחדש. אורי החליט להתחכם וניסה לפרק ולסדר את החלקים בצורה שיהיה קל לזכור איך להרכיב אותם חזרה. אחד הבודקים עלה עליו, ניגש אליו ובלגן לו את הכל.`,
+    `אורי ניסה להרכיב מחדש. זיכרון טוב לפרטים לא היה לו, אז היה צריך להבין הכל מחדש. לא רק שהצליח להרכיב את הכל — הוא ייעל את המכונה והרכיב אותה בפחות חלקים. את החלקים שנשארו לו הוא החביא בכיס.` ] },
+
+  { cat:"tsniut", title:"המותג", author:"אורן דניאלי",
+    img:"images/har-vagai.jpg", imgKind:"logo", imgAlt:'"הר וגיא" — בסגנון סמל הרווארד',
+    body:[
+    `אורי לא התעסק הרבה במה שהוא לובש, בלשון המעטה. היה בוחר בגדים רק מתוך נוחות, בלי לחשוב בכלל על איך זה נראה. זה בדרך כלל היה נגמר בנעלי בית ומכנסיים עם המון המון כיסים. אבל משהו אחד כן היה אכפת לו.`,
+    `אורי סלד באופן קיצוני ממותגים. הוא לא היה מוכן בשום אופן ללבוש שום דבר ממותג סמי־יוקרתי. זה לא רק שלא היה מוכן לשלם על מותגים — הוא גם לא הסכים לקנות אותם בהנחה, ולדעתי היה מעדיף לשלם יותר כדי להימנע. הרעיון של בגדים שעשויים לשדר איזו התנשאות זיעזע אותו.`,
+    `כשאני למדתי בהרווארד, הלכנו לחנות של האוניברסיטה. אירית קנתה לעצמה חולצה של Harvard mom. הצעתי לו שנקנה לו Harvard dad, והוא הסתכל עליי בפרצוף של מישהו שאכל בטעות סנדוויץ׳ עם גבינה צהובה שנשכח בתיק כל החופש הגדול. חשבתי להכין לו פעם חולצה של הרווארד אבל לכתוב במקום "הר וגיא", ולראות אם את זה הוא יסכים ללבוש — אבל לא הספקתי.`,
+    `מתישהו אמא אמרה לו שהוא מגזים, והיה לה טיעון טוב. היא אמרה לו שהמותג שלו זה שאין לו מותג — שהוא רוצה שכולם יראו שהוא בלי מותג, וזה בעצם מותג בפני עצמו. אני חושב שמי שבאמת היה רוצה להראות שהוא בלי מותג היה מתווכח. הוא אמר לה שהיא צודקת.` ] },
+
+  { cat:"tsniut", title:"סבון", author:"אלון פרחי", body:[
+    `אורי היה מבקש ממני לקנות לו סבונים, שהיו רק בקליפורניה. היית יכול לחשוב איזה אנין טעם זה, שמייבא לעצמו סבונים מחו"ל. יום אחד פתחתי את האריזה, וראיתי שזה סבון תעשייתי הכי פשוט שיש — משהו שהיום משתמשים בו לסוסים. מתישהו אירית ביקשה ממני להפסיק להביא לו אותם, כי אין מקום בבית.` ] },
+
+  { cat:"hemla", title:"מאה אחוז נתינה", author:"גלי ארנון", body:[
+    `אורי הוא 100% נתינה. הוא מעולם לא נתן לי להרגיש שאני צריך משהו בלי שהיה לו פתרון.` ] },
+
+  { cat:"hemla", title:"מבחנים תיאורטיים", author:"גדעון כנעני", body:[
+    `זה לא כל כך פשוט לי לספר את זה, אבל בכל זאת. הייתי ילד דיסקלקטי, ואחר נער דיסקלקטי, ואז חייל דיסקלקטי, והיום אני זקן דיסקלקטי. בתקופת הצבא היה לי מאוד קשה ללמוד את דפי הלוחם, את דפי המבצע וכו'. ולא פעם ולא פעמיים הייתי בא לאורי ומבקש ממנו שיעזור לי ללמוד.`,
+    `אורי מעולם לא הרים את הראש ולא התנשא. פשוט ישב איתי ועזר לי ללמוד את הדפים בעל־פה, כדי שאהיה שווה בין שווים — גם במקומות שצריך להיות בהם הכי טוב. ואני מוקיר לו תודה על זה.` ] },
+
+  { cat:"aher", title:'אורי דניאלי "שלי"', author:"אורי אגמון", body:[
+    `לבקשת אורן ישבתי לכתוב ולספר על אורי "שלי". הניסוח שלך, אורן, כששלחת את בקשתך לכתוב, הזכיר לי את אבא שלך — ישיר, לא מתחכם וברור.`,
+    `את אורי פגשתי כשהגעתי למרקורי בשנת 1996. אורי הגיע זמן קצר לפניי ויועד להיות מנהל הפיתוח. קודמו בתפקיד — יוכי — היה עדיין בחברה בתהליכי חפיפה ועזיבה.`,
+    `אני הגעתי בעצם "משום מקום" בעיניה של חברת הייטק, והתחלתי לבחון את מקומי בחברה. מספר שבועות אחרי שהגעתי מינו אותי למנכ"ל, ובעצם למנכ"ל אדמיניסטרטיבי של האתר בישראל. לאחר כמה חודשים הבנתי שאני לא מוכן להיות אדמיניסטרטור בלבד, והחלטתי להיכנס לתחום השיווק והמכירות — בהתחלה באירופה ובהמשך באסיה כולה, שעדיין לא טופלה על ידי החברה. כך שהיה לי תפקיד כפול: מצד אחד ניהול האתר בישראל, ומצד שני לנהל את מערך המכירות שהקמתי בכל מרחב אסיה — יפן, סינגפור, אוסטרליה ועוד. עד כאן עליי.`,
+    `הזמנתי את אורי, מנהל הפיתוח, לפגישה, וישבנו על "חלוקת גזרות בינינו", שהרי מירב העובדים היו מפתחים בהנהלתו. כבר בפגישה זו נוצר בינינו קליק מצוין של יחסי עבודה. שום מאבק "אגו" לא נוצר. זיהיתי את אורי כאיש כלבבי — רגוע, הוגן ונבון. דרך ניהולו את אנשיו נראתה לי מושלמת. היכולת שלו לקיים חקירה מקצועית ואיתור מעמיק של יכולות כל אחד מהמפתחים נראתה לי כנס. בראייתי, אורי ניהל את הצוות ביעילות עסקית מצד אחד ובאנושיות רבה מצד שני. מי שלא תרם מספיק ראה את הדרך החוצה בלי סנטימנטים, ומנגד ההקפדה על שכר הוגן ותנאי עבודה לאנשיו היתה נר לרגליו.`,
+    `זכורה לי אפיזודה שבה אורי רצה להקים צוות עבודה ישראלי־פלסטיני, מתוך אידיאל של שיתוף פעולה ברוח אוסלו. סידרתי לנו פגישה עם איש קשר בירדן. נסענו יחד עם אירית ואוריטל, הגענו לרבת עמון וקיימנו פגישת היכרות עם השותפים הפוטנציאליים. העסקה לא יצאה לפועל בסוף, אבל ראיתי את אורי שיזם את הרעיון וראה בו אפשרות לתמיכה במהלך של שלום. במרקורי הוקמה גם קבוצה של בנות חרדיות מבני ברק שעסקו בבדיקות איכות, ולכבודן הכנו חדר מיוחד באישור הרב שלהן. גם בזה אורי ראה עניין ערכי וחשוב של שיתוף המגזר החרדי — עניין שכל כך רלוונטי כיום.`,
+    `פרק מאוד משמעותי בהיכרות בינינו היה בנסיעות המשותפות לאירועי החברה בחו"ל, בדגש על הנהלת החברה בסאניוויל. בנסיעות אלו היה לנו "זמן איכות" שבו העמקנו את ההיכרות והאמון. מי לא זוכר את המוטל המוזנח ברחוב מטילדה שאכסן אותנו — מוטל עלוב עם דונאט לארוחת בוקר וקפה אמריקאי דלוח. כשחזרנו פעם מבילוי לילי בסן פרנסיסקו, עצר אותנו שוטר באגרסיביות אמריקאית, עם סירנה וזרקור בפרצוף. אורי נהג והיה חיוור ומבוהל, עד שאמרנו לשוטר שלא שתינו ושאנחנו גרים במוטל במטילדה — והוא שיחרר אותנו.`,
+    `גיליתי את אורי כאיש עקרונות עם דעה מוצקה וכושר חשיבה נדיר. הוא ידע לנתח בצורה מקורית מצבים פוליטיים כמו גם מהלכים צבאיים. אורי ידע להביע את דעתו בצורת שאלה, כך שתמיד היה אפשר לדון ולא רק להשמיע. היה חשוב לו לשמוע את בן שיחו ולתת לו תחושה שהוא מאוד מעריך את מה ששמע.`,
+    `התחלנו לבלות בספורט יחד, בעיקר בשנים שאחרי מרקורי מבחינתי. אחרי שעזבתי את החברה ויצאתי לדרכים חדשות, התחלנו לרכוב על אופני שטח ובהמשך לשחות בים. השחייה המשותפת היתה תענוג צרוף בעיניי — שחיות שהתארכו עד 3.5 ק"מ, כשאורי שוחה לאט, בסבלנות ובהתמדה, ואנחנו יוצאים מהמים בחוף סידני עלי ופוסעים חזרה לחוף הנכים. תמיד שיעשע אותו שאני שוחה מהר יותר ומחכה לו בחוף כדי לחזור לנקודת המוצא.`,
+    `בנוסף התחלנו לטייל יחד ברגל — מסלולים הרריים ומאתגרים. הטיול הראשון שלנו חצה את הכרמל ממושב עין איילה לדלית אל כרמל, ומשם במונית חזרה. הלכנו דרך הסבך הקוצני של שיחי פטל וקידה שעירה פורחת בצהוב, וחזרנו שרוטים ומרוצים. אורי, עם הכפייה הלבנה על הראש, מכשיר נווט זעיר בכיס ותרמיל על הגב, פוסע בשקט, בחיוך שבע רצון, ומתעניין בכל מה שאנחנו נתקלים בו בדרך — בעלי חיים, צמחים או אנשים.`,
+    `ואז אורי החליט ללמוד ערבית, כדי להבין טוב יותר את החוויה המזרח־תיכונית. הוא התמסר ללימוד בשקדנות ובסבלנות. וכמובן שיעורי הטיס — למד בכישרון, בהעזה ובסבלנות, והפך לטייס. פעם, כשאירית ואורי ביקרו אותנו עם עידו התינוק ברמות נפתלי, אורי החליט ללכת למנרה. העמיס את התינוק על עגלת טיול והלך בסנדלים מרחק 12 ק"מ בהפרש גובה של כ־350 מטר. ככה, בלי הכנה — עוד אתגר שלקח על עצמו בשקט.`,
+    `אורי, עם כל יכולותיו השכליות החדות, הידע הנרחב והסקרנות שלו, היה צנוע מאוד. מעולם לא חשב שהוא טוב מאחרים. תמיד סיפר כמה היה "שולי" בשייטת 13, "אני בקושי יודע לשחות". אף פעם לא סיפר לי דבר על שירותו בקומנדו הימי — איפה היה ובאילו מבצעים השתתף. דיסקרטיות מוחלטת.`,
+    `אני מוצא את עצמי חושב על אורי פעמים רבות — יש בי געגוע לחברות, לשהות המשותפת, לניגוב הצלחת עם האצבע, ולתחושת הנעימות האינטליגנטית שהיה משרה עליי בכל פגישה.` ] },
+
+  { cat:"aher", title:"הצעה מגונה", author:"ירון בנאי", body:[
+    `היות ואורי היה חסר בושה, מינינו אותו להיות שר החוץ שלנו: לכל מקום שהגענו אליו היינו שולחים את אורי לדבר עם בעל או בעלת המקום, ולבדוק אם החדרים סבירים. באחד המקרים פנה אורי לבעלת המקום וביקש ממנה לראות את החדר — ולתדהמתו, היא סירבה לבוא איתו!`,
+    `היות והאנגלית אינה שגורה על מרבית היפנים, הרבה תקשורת מתבצעת בעזרת הידיים או ציור על נייר. הסתבר שהיפנית חשבה שאורי רוצה שהיא תבוא איתו לחדר, ולא שתראה לו את החדר — ועל כן סירבה לבקשתו.` ] },
+];
+
+/* ---------- helpers ---------- */
+const app = document.getElementById("app");
+const likeState = {};
+const esc = s => String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+const catById = id => categories.find(c=>c.id===id);
+const countLabel = n => n + " " + (n===1 ? "סיפור" : "סיפורים");
+document.getElementById("topSubmit").href = SUBMIT_URL;
+
+function figHTML(s){
+  if(!s.img) return "";
+  const kind = s.imgKind==="logo" ? " logo" : "";
+  const cap = s.imgAlt ? `<figcaption>${esc(s.imgAlt)}</figcaption>` : "";
+  return `<figure class="story-fig${kind}"><img src="${s.img}" alt="${esc(s.imgAlt||s.title)}" loading="lazy">${cap}</figure>`;
+}
+
+function storyHTML(s){
+  const i = stories.indexOf(s);
+  const on = likeState[i] ? " on" : "";
+  const heart = likeState[i] ? "♥" : "♡";
+  const aHref = "#/a/" + encodeURIComponent(s.author);
+  const paras = s.body.map(p=>`<p>${p}</p>`).join("");
+  return `<article class="story">
+    <h4>${esc(s.title)}</h4>
+    <p class="byline">מאת <a class="author-btn" href="${aHref}">${esc(s.author)}</a></p>
+    ${figHTML(s)}
+    ${paras}
+    <div class="story-foot">
+      <button class="like${on}" onclick="toggleLike(${i},this)" aria-pressed="${!!likeState[i]}">
+        <span class="heart">${heart}</span><span>אהבתי</span>
+      </button>
+    </div>
+  </article>`;
+}
+
+/* ---------- views ---------- */
+function renderHome(){
+  const cards = categories.map(c=>{
+    const n = stories.filter(s=>s.cat===c.id).length;
+    return `<a class="tcard" href="#/t/${c.id}">
+      <div class="tbadge">${icons[c.id]||""}</div>
+      <h3>${esc(c.name)}</h3>
+      <div class="cnt">${countLabel(n)}</div>
+    </a>`;
+  }).join("");
+
+  app.innerHTML = `
+    <section class="hero">
+      <div class="wrap">
+        <div class="eyebrow">אוסף סיפורים</div>
+        <h1>אורי דניאלי</h1>
+        <div class="portrait"><img src="images/hero-beach.jpg" alt="אורי דניאלי מחייך על חוף הים"></div>
+        <div class="lead">
+          <p class="first">אורי דניאלי לא היה בן אדם רגיל. הנכדים של אורי יודעים כמה אהבנו אותו וכמה אנחנו מתגעגעים אליו, אבל הם לא הספיקו להבין איזה אדם מיוחד הוא היה.</p>
+          <p class="first">האתר הזה נועד לאסוף סיפורים עליו שימחישו זאת. את הסיפורים נאגד לספר לקראת השנה החמישית ללכתו, במאי 2027.</p>
+        </div>
+        <div class="submit">
+          <div class="submit-card">
+            <h3>יש לכם סיפור על אורי?</h3>
+            <p>תשלחו בבקשה את הסיפורים הכי קיצוניים שלכם.<span class="tall">פחות אמין = יותר טוב.</span></p>
+            <a class="cta" href="${SUBMIT_URL}" target="_blank" rel="noopener">שליחת סיפור</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="traits">
+      <div class="wrap">
+        <h2 class="sec-title">לאורי היו כמה תכונות ייחודיות</h2>
+        <p class="sec-sub">בחרו תכונה כדי לקרוא את הסיפורים שלה.</p>
+        <div class="grid">${cards}</div>
+      </div>
+    </section>`;
+  setActiveNav("home");
+}
+
+function renderTrait(id){
+  const cat = catById(id);
+  if(!cat){ renderHome(); return; }
+  const items = stories.filter(s=>s.cat===id);
+  const list = items.map(storyHTML).join("");
+  const otherChips = categories.filter(c=>c.id!==id)
+    .map(c=>`<a class="chip" href="#/t/${c.id}">${esc(c.short)}</a>`).join("");
+
+  app.innerHTML = `
+    <section class="page">
+      <div class="wrap">
+        <a class="back" href="#/">חזרה לכל התכונות</a>
+        <div class="page-head centered">
+          <div class="tbadge">${icons[cat.id]||""}</div>
+          <h2>${esc(cat.name)}</h2>
+          <p class="cnt">${countLabel(items.length)}</p>
+        </div>
+        ${list}
+        <div class="more">
+          <p class="t">תכונות נוספות</p>
+          <div class="chips">${otherChips}</div>
+        </div>
+      </div>
+    </section>`;
+  setActiveNav(id);
+}
+
+function renderAuthor(name){
+  const items = stories.filter(s=>s.author===name);
+  if(!items.length){ renderHome(); return; }
+  let blocks = "";
+  categories.forEach(c=>{
+    const inCat = items.filter(s=>s.cat===c.id);
+    if(!inCat.length) return;
+    blocks += `<p class="grouplabel">${esc(c.name)}</p>` + inCat.map(storyHTML).join("");
+  });
+
+  app.innerHTML = `
+    <section class="page">
+      <div class="wrap">
+        <a class="back" href="#/">חזרה לכל התכונות</a>
+        <div class="page-head">
+          <h2>סיפורים מאת ${esc(name)}</h2>
+          <p class="cnt">${countLabel(items.length)}</p>
+        </div>
+        ${blocks}
+      </div>
+    </section>`;
+  setActiveNav("");
+}
+
+/* ---------- like ---------- */
+function toggleLike(i, btn){
+  likeState[i] = !likeState[i];
+  btn.classList.toggle("on", likeState[i]);
+  btn.querySelector(".heart").textContent = likeState[i] ? "♥" : "♡";
+  btn.setAttribute("aria-pressed", String(!!likeState[i]));
+}
+
+/* ---------- nav ---------- */
+function buildNav(){
+  const el = document.getElementById("navlinks");
+  el.innerHTML = `<a class="navlink" data-key="home" href="#/">בית</a>` +
+    categories.map(c=>`<a class="navlink" data-key="${c.id}" href="#/t/${c.id}">${esc(c.short)}</a>`).join("");
+}
+function setActiveNav(key){
+  document.querySelectorAll(".navlink").forEach(a=>a.classList.toggle("active", a.dataset.key===key));
+}
+
+/* ---------- router ---------- */
+function router(){
+  const raw = location.hash.replace(/^#\/?/, "");
+  const parts = raw.split("/");
+  if(parts[0]==="t" && parts[1]) renderTrait(decodeURIComponent(parts[1]));
+  else if(parts[0]==="a" && parts[1]) renderAuthor(decodeURIComponent(parts[1]));
+  else renderHome();
+  window.scrollTo(0,0);
+}
+buildNav();
+window.addEventListener("hashchange", router);
+router();
+</script>
+</body>
+</html>
